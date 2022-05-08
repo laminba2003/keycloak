@@ -55,6 +55,11 @@ h2 {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
+.half .contents .register-form .form-control {
+  height: 46px;
+}
+
+
 .half .bg {
   background-size: cover;
   background-position: center; }
@@ -67,6 +72,11 @@ h2 {
   padding-right: 30px; }
 
 .half .forgot-pass {
+  position: relative;
+  top: 2px;
+  font-size: 14px; }
+
+.half .register {
   position: relative;
   top: 2px;
   font-size: 14px; }

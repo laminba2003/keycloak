@@ -56,7 +56,7 @@
 
                 </div>
                 <div class="form-group last mb-3">
-                   <label for="password" class="${properties.kcLabelClass!}">${msg("password")}</label>
+                   <label for="password">${msg("password")}</label>
                    <input tabindex="2" required id="password" class="form-control" name="password" type="password" autocomplete="off" />
                 </div>
 
@@ -87,6 +87,12 @@
                             </div>
                             <br style="float:clear">
                  </#if>
+
+                 <#if realm.password && realm.registrationAllowed && !registrationDisabled??>
+                 <div class="d-sm-flex mb-5 align-items-center">
+                   <span class="ml-auto">${msg("noAccount")} <a tabindex="6" class="register" href="${url.registrationUrl}">${msg("doRegister")}</a></span>
+                  </div>
+                </#if>
 
               </form>
             </div>

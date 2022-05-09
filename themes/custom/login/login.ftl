@@ -78,8 +78,8 @@
                 <#if realm.password && social.providers??>
                     <span class="text-center my-3 d-block">or</span>
 
-                         <div id="kc-social-providers" class="${properties.kcFormSocialAccountContentClass!} ${properties.kcFormSocialAccountClass!}">
-                                <ul class="${properties.kcFormSocialAccountListClass!} <#if social.providers?size gt 4>${properties.kcFormSocialAccountDoubleListClass!}</#if>">
+                         <div id="kc-social-providers">
+                                <ul class="login-pf-social">
                                     <#list social.providers as p>
                                         <li class="${properties.kcFormSocialAccountListLinkClass!}"><a href="${p.loginUrl}" id="zocial-${p.alias}" class="zocial ${p.providerId}"> <span>${p.displayName}</span></a></li>
                                     </#list>

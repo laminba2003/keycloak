@@ -82,12 +82,13 @@
                 </div>
                 </#if>
 
+
+                <input class="btn btn-block py-2 btn-primary" name="login" id="kc-login" type="submit" value="${msg("doRegister")}"/>
+
                  <div class="d-sm-flex mb-5 align-items-center">
                    <span class="ml-auto"><a href="${url.loginUrl}">${kcSanitize(msg("backToLogin"))?no_esc}</a></span>
                 </div>
 
-
-                <input tabindex="4" class="btn btn-block py-2 btn-primary" name="login" id="kc-login" type="submit" value="${msg("doRegister")}"/>
 
               </form>
             </div>

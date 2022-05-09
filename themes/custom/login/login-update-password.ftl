@@ -1,45 +1,86 @@
-<#import "template.ftl" as layout>
-<@layout.registrationLayout displayInfo=true; section>
-    <#if section = "header">
-        ${msg("updatePasswordTitle")}
-    <#elseif section = "form">
-        <form id="kc-passwd-update-form" class="${properties.kcFormClass!}" action="${url.loginAction}" method="post">
-            <input type="text" id="username" name="username" value="${username}" autocomplete="username" readonly="readonly" style="display:none;"/>
-            <input type="password" id="password" name="password" autocomplete="current-password" style="display:none;"/>
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-            <div class="${properties.kcFormGroupClass!}">
-                <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password-new" class="${properties.kcLabelClass!}">${msg("passwordNew")}</label>
-                </div>
-                <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" autofocus autocomplete="new-password" />
-                </div>
-            </div>
+     <#if properties.meta?has_content>
+            <#list properties.meta?split(' ') as meta>
+                <meta name="${meta?split('==')[0]}" content="${meta?split('==')[1]}"/>
+            </#list>
+        </#if>
+        <title>${msg("updatePasswordTitle")}</title>
+        <link rel="icon" href="${url.resourcesPath}/img/favicon.ico" />
+        <#if properties.stylesCommon?has_content>
+            <#list properties.stylesCommon?split(' ') as style>
+                <link href="${url.resourcesCommonPath}/${style}" rel="stylesheet" />
+            </#list>
+        </#if>
+        <#if properties.styles?has_content>
+            <#list properties.styles?split(' ') as style>
+                <link href="${url.resourcesPath}/${style}" rel="stylesheet" />
+            </#list>
+        </#if>
 
-            <div class="${properties.kcFormGroupClass!}">
-                <div class="${properties.kcLabelWrapperClass!}">
-                    <label for="password-confirm" class="${properties.kcLabelClass!}">${msg("passwordConfirm")}</label>
-                </div>
-                <div class="${properties.kcInputWrapperClass!}">
-                    <input type="password" id="password-confirm" name="password-confirm" class="${properties.kcInputClass!}" autocomplete="new-password" />
-                </div>
-            </div>
+  </head>
+  <body>
 
-            <div class="${properties.kcFormGroupClass!}">
-                <div id="kc-form-options" class="${properties.kcFormOptionsClass!}">
-                    <div class="${properties.kcFormOptionsWrapperClass!}">
+
+
+  <div class="d-md-flex half">
+    <div class="bg"></div>
+    <div class="contents">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-12">
+            <div class="form-block mx-auto">
+              <div class="text-center mb-5">
+                <h3 class="text-uppercase">${msg("updatePasswordTitle")}</h3>
+              </div>
+            <#if message?has_content>
+                <div class="alert alert-danger" role="alert">
+                  ${message.summary?no_esc}
+                </div>
+            </#if>
+              <form id="passwd-update-form" action="${url.loginAction}" method="post">
+                    <input type="text" id="username" name="username" value="${username}" autocomplete="username" readonly="readonly" style="display:none;"/>
+                    <input type="password" id="password" name="password" autocomplete="current-password" style="display:none;"/>
+                    <div class="form-group">
+                       <label for="password-new">${msg("passwordNew")}</label>
+                       <input type="password" id="password-new" name="password-new" class="${properties.kcInputClass!}" autofocus autocomplete="new-password" />
                     </div>
-                </div>
+                    <div class="form-group">
+                       <label for="password-confirl">${msg("passwordConfirm")}</label>
+                       <input type="password" id="password-confirm" name="password-confirm" class="${properties.kcInputClass!}" autofocus autocomplete="confirm-password" />
+                    </div>
 
-                <div id="kc-form-buttons" class="${properties.kcFormButtonsClass!}">
-                    <#if isAppInitiatedAction??>
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}" />
-                    <button class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonLargeClass!}" type="submit" name="cancel-aia" value="true" />${msg("doCancel")}</button>
-                    <#else>
-                    <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doSubmit")}" />
-                    </#if>
-                </div>
+
+                <input class="btn btn-block py-2 btn-primary" type="submit" value="${msg("doSubmit")}"/>
+
+              </form>
             </div>
-        </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+<#if properties.scripts?has_content>
+        <#list properties.scripts?split(' ') as script>
+            <script src="${url.resourcesPath}/${script}" type="text/javascript"></script>
+        </#list>
     </#if>
-</@layout.registrationLayout>
+    <#if scripts??>
+        <#list scripts as script>
+            <script src="${script}" type="text/javascript"></script>
+        </#list>
+    </#if>
+
+  </body>
+</html>
+

@@ -1,5 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.htmlEmailLayout ; section>
+    <#if section = "subject">
+         ${msg("emailVerificationLinkTextHtml")?no_esc}
+    </#if>
     <#if section = "text">
         ${msg("emailVerificationBodyHtml", linkExpiration, realmName)?no_esc}
     </#if>

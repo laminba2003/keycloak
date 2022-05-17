@@ -1,5 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.htmlEmailLayout ; section>
+    <#if section = "subject">
+        ${msg("identityProviderLinkLinkTextHtml")?no_esc}
+    </#if>
     <#if section = "text">
         ${msg("identityProviderLinkBodyHtml", identityProviderAlias, realmName, identityProviderContext.username, linkExpiration)?no_esc}
     </#if>

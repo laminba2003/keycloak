@@ -1,5 +1,8 @@
 <#import "template.ftl" as layout>
 <@layout.htmlEmailLayout ; section>
+    <#if section = "subject">
+         ${msg("passwordResetLinkTextHtml")?no_esc}
+    </#if>
     <#if section = "text">
         ${msg("passwordResetBodyHtml", linkExpiration, realmName)?no_esc}
     </#if>

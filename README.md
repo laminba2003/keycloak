@@ -9,7 +9,7 @@ $ docker-compose up --build
 ```
 The Keycloak server will now be available on <http://localhost:8080>. You can log into the Administration Console using “**admin**” as both username and "**password**" as password.
 
-To enable a theme in he local Keycloak server, connect to the administration console.
+To enable a theme in the local Keycloak server, connect to the administration console.
 
 You will now see the  theme when logging into the local Keycloak server. Changes made to the theme files will be visible on the local Keycloak server when you refresh the page in your browser.
 

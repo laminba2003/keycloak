@@ -1,13 +1,13 @@
 # Keycloak custom
 
 ### Local Keycloak server
-A local Keycloak server for developing and testing the themes is available as a Docker container.
+A local Keycloak server based on [Bitnami Docker Image for Keycloak](https://github.com/bitnami/bitnami-docker-keycloak) is available as a Docker container for developing and testing the themes.
 
 To bring up the server, make sure you’ve installed and started [Docker Community Edition](https://docs.docker.com/engine/installation/), then use the following commands:
 ```bash
 $ docker-compose up --build
 ```
-The Keycloak server will now be available on <http://localhost:8080>. You can log into the Administration Console using “**admin**” as both username and "**password**" as password.
+The Keycloak server will now be available on <http://localhost:8080/admin>. You can log into the Administration Console using “**admin**” as both username and "**password**" as password.
 
 To enable a theme in the local Keycloak server, connect to the administration console.
 

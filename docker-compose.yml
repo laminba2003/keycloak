@@ -16,24 +16,22 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   keycloak:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
+    image: bitnami/keycloak:18.0.0-debian-11-r0
     container_name: ck-theme_keycloak
     environment:
-      DB_VENDOR: POSTGRES
-      DB_ADDR: postgres
-      DB_DATABASE: keycloak
-      DB_USER: keycloak
-      DB_SCHEMA: public
-      DB_PASSWORD: password
-      KEYCLOAK_USER: admin
-      KEYCLOAK_PASSWORD: password
-      URI_METRICS_ENABLED: "true"
+      KEYCLOAK_DATABASE_HOST: postgres
+      KEYCLOAK_DATABASE_NAME: keycloak
+      KEYCLOAK_DATABASE_USER: keycloak
+      KEYCLOAK_DATABASE_SCHEMA: public
+      KEYCLOAK_DATABASE_PASSWORD: password
+      KEYCLOAK_ADMIN_USER: admin
+      KEYCLOAK_ADMIN_PASSWORD: password
+      KEYCLOAK_PRODUCTION: "false"
+      KEYCLOAK_ENABLE_TLS: "false"
     ports:
       - 8080:8080
     volumes:
-      - ./themes/custom:/opt/jboss/keycloak/themes/custom
+      - ./themes/custom:/opt/bitnami/keycloak/themes/custom
     depends_on:
       - postgres
 

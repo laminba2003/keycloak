@@ -25,4 +25,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: laminba2003/keycloack-custom:1.0.0
+          tags: laminba2003/keycloak:1.0.0

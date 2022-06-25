@@ -51,3 +51,11 @@ The local Keycloak server should now be set up to send e-mails to MailDev. To ch
 6. Enter your username (**admin**) in the text field, and submit the form.
 
 7. Visit [MailDev](http://localhost:9999). You should see a reset password e-mail from Keycloak.
+
+### Installation on Kubernetes with Helm
+
+You can install this image on your kubernetes cluster using the [bitnami keycloak chart](https://github.com/bitnami/charts/tree/master/bitnami/keycloak) like this : 
+
+```bash
+$ helm install keycloak --set image.repository=laminba2003/keycloak,image.tag=1.0.0 bitnami/keycloak 
+```

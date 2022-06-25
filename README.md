@@ -57,5 +57,6 @@ The local Keycloak server should now be set up to send e-mails to MailDev. To ch
 You can install this image on your kubernetes cluster using the [bitnami keycloak chart](https://github.com/bitnami/charts/tree/master/bitnami/keycloak) like this : 
 
 ```bash
+$ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm install keycloak --set image.repository=laminba2003/keycloak,image.tag=1.0.0 bitnami/keycloak 
 ```

@@ -7,7 +7,7 @@ volumes:
 services:
   postgres:
     image: postgres:9.6
-    container_name: ck-theme_postgres
+    container_name: ck_theme_postgres
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
@@ -17,7 +17,7 @@ services:
 
   keycloak:
     image: bitnami/keycloak:18.0.0-debian-11-r0
-    container_name: ck-theme_keycloak
+    container_name: ck_theme_keycloak
     environment:
       KEYCLOAK_DATABASE_HOST: postgres
       KEYCLOAK_DATABASE_NAME: keycloak
@@ -26,12 +26,10 @@ services:
       KEYCLOAK_DATABASE_PASSWORD: password
       KEYCLOAK_ADMIN_USER: admin
       KEYCLOAK_ADMIN_PASSWORD: password
-      KEYCLOAK_PRODUCTION: "false"
-      KEYCLOAK_ENABLE_TLS: "false"
     ports:
       - 8080:8080
     volumes:
-      - ./themes/custom:/opt/bitnami/keycloak/themes/custom
+      - ./themes/cygnus:/opt/bitnami/keycloak/themes/cygnus
     depends_on:
       - postgres
 

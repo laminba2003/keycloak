@@ -16,7 +16,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   keycloak:
-    image: bitnami/keycloak:18.0.0-debian-11-r0
+    image: bitnami/keycloak:19.0.3
     container_name: ck_theme_keycloak
     environment:
       KEYCLOAK_DATABASE_HOST: postgres

@@ -1,3 +1,3 @@
-FROM bitnami/keycloak:18.0.0-debian-11-r0
+FROM bitnami/keycloak:19.0.3
 
 COPY ./themes /opt/bitnami/keycloak/themes
